@@ -1,5 +1,6 @@
 module debounce(
-    input wire clk, nrst,
+    input wire clk,
+    input wire nrst,
     input wire [N-1:0] key_in,
     output reg [N-1:0] key_out
     );
@@ -10,17 +11,17 @@ module debounce(
     reg [N-1:0] key_cnt;
     reg [20:0] cnt;
 
-    always @(posedge clk or negedge nrst) begin
-        if(nrst == 0)
-            key_cnt <= {N{0'b1}};
-        else if(key_cnt == {N{0'b1}} && key_out != key_in)
+    always @(posedge clk or posedge nrst) begin
+        if(nrst == 1)
+            key_cnt <= {N{1'b0}};
+        else if(key_cnt == {N{1'b0}} && key_out != key_in)
             key_cnt <= key_in;
         else if(cnt == TIME_20MS - 1)
-            key_cnt <= {N{0'b1}};
+            key_cnt <= {N{1'b0}};
     end
 
-    always @(posedge clk or negedge nrst) begin
-        if(nrst == 0)
+    always @(posedge clk or posedge nrst) begin
+        if(nrst == 1)
             cnt <= 0;
         else if(key_cnt > 0)
             cnt <= cnt + 1'b1;
@@ -28,9 +29,9 @@ module debounce(
             cnt <= 0;
     end
 
-    always @(posedge clk or negedge nrst) begin
-        if(nrst == 0)
-            key_out <= {N{0'b1}};
+    always @(posedge clk or posedge nrst) begin
+        if(nrst == 1)
+            key_out <= {N{1'b0}};
         else if(key_cnt == 0 && key_out != key_in)
             key_out <= key_in;
     end

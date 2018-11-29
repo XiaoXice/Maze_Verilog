@@ -1,4 +1,6 @@
-module MAZE(
+`define MEMORYSIZE 2
+
+module Maze(
   
 );
 

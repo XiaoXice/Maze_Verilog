@@ -1,8 +1,8 @@
 module key(
-  input wire clk,reset; //50MHZ
-  input wire [3:0] row; //行
-  output reg [3:0] col; //列
-  output reg [3:0] key_value; //键值
+  input wire clk,reset, //50MHZ
+  input wire [3:0] row, //行
+  output reg [3:0] col, //列
+  output reg [3:0] key_value //键值
 );
 reg [5:0] count;  //delay_20ms
 reg [2:0] state;  //状态标志
@@ -70,6 +70,15 @@ always @(posedge clk_500khz or negedge reset)
               key_flag<=1'b1;  //有键按下
             end
           else  state<=0;
+        end
+      default:begin
+          col[3:0]<=4'b0000;
+          key_flag<=1'b0;
+          if(row[3:0]!=4'b1111) begin //有键按下，扫描第一行
+            state<=1;
+            col[3:0]<=4'b1110;
+          end
+          else state<=0;
         end
     endcase
   end

@@ -1,8 +1,8 @@
 module memory(
-  input clk; // 50Mhz
-  input [5:0] address;
-  input command;
-  inout [`MEMORYSIZE-1:0] data;
+  input clk, // 50Mhz
+  input [5:0] address,
+  input command,
+  inout [`MEMORYSIZE-1:0] data
 );
 
 reg [63:0] mem [`MEMORYSIZE-1:0];
