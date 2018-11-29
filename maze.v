@@ -1,0 +1,5 @@
+module MAZE(
+  
+);
+
+endmodule // MAZE
