@@ -3,8 +3,8 @@ module nvidia(
   input nrst,
   input [`MEMORYSIZE-1:0] data,
   input enable,
-  output [5:0] address,
-  output command,
+  output reg [5:0] address,
+  output reg command,
   output reg [7:0] row,
   output reg [7:0] r_col,
   output reg [7:0] g_col
@@ -25,7 +25,7 @@ always @(posedge clk or posedge nrst) begin
   else if(enable)
     cnt <= cnt + 1'b1;
   else if(cnt == TIME -1)
-    cnt <= {20{1'b0}}
+    cnt <= {20{1'b0}};
 end
 
 always @(posedge clk or posedge nrst) begin
@@ -34,6 +34,10 @@ always @(posedge clk or posedge nrst) begin
     r_col <= {7{1'b0}};
     g_col <= {7{1'b0}};
   end
+  else if(enable)
+    command <= 0;
+  else if(!enable)
+    command <= 1'bz;
   else if(enable && status == 0) begin
     col_cnt <= col_cnt + 1'b1;
     address <= address + 1'b1;
