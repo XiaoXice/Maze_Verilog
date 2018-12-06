@@ -3,43 +3,58 @@
 module Maze(
   input clk,
   input nst,
+  input [3:0] key_row,
+  input [3:0] key_col,
   output [7:0] led_row,
   output [7:0] led_r_col,
   output [7:0] led_g_col
 );
 
-wire [5:0] address;
-wire command;
-wire [`MEMORYSIZE-1:0] data;
+tri [5:0] address;
+tri commend;
+tri [`MEMORYSIZE-1:0] data;
 
-wire LED_enable;
+wire NVcommend;
+
+wire [3:0] key_value;
+
+// Key44 Key441(
+//   .clk(clk),
+//   .reset(nst),
+//   .row(key_row),
+//   .col(key_col),
+//   .key_value(key_value)
+// );
+
+// commend commend1(
+//   .clk(clk),
+//   .key_value(key_value),
+//   .nst(nst),
+//   .address(address),
+//   .commend(commend),
+//   .NVcommend(NVcommend),
+//   .data(data)
+// );
+
+assign NVcommend = 1;
 
 memory memory1(
   clk,
   address,
-  command,
+  commend,
   data
 );
 
-nvidia mvidia1(
+nvidia nvidia1(
   clk,
   nst,
   data,
-  LED_enable,
+  NVcommend,
   address,
-  command,
+  commend,
   led_row,
-  led_g_col,
-  led_r_col
-);
-
-testMap testMap(
-  clk,
-  nst,
-  command,
-  LED_enable,
-  address,
-  data
+  led_r_col,
+  led_g_col
 );
 
 endmodule // MAZE

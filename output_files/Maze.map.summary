@@ -1,5 +1,9 @@
-Analysis & Synthesis Status : Failed - Thu Nov 29 10:38:33 2018
+Analysis & Synthesis Status : Successful - Thu Dec 06 11:27:42 2018
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : Maze
 Top-level Entity Name : Maze
 Family : MAX II
+Total logic elements : 592
+Total pins : 34
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

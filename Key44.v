@@ -1,4 +1,4 @@
-module key(
+module key44(
   input wire clk,reset, //50MHZ
   input wire [3:0] row, //行
   output reg [3:0] col, //列
