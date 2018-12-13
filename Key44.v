@@ -1,4 +1,4 @@
-module key44(
+module Key44(
   input wire clk,reset, //50MHZ
   input wire [3:0] row, //行
   output reg [3:0] col, //列
@@ -10,8 +10,20 @@ reg key_flag;   //按键标志位
 reg clk_500khz;  //500KHZ时钟信号
 reg [3:0] col_reg;  //寄存扫描列值
 reg [3:0] row_reg;  //寄存扫描行值
-always @(posedge clk or negedge reset)
-  if(!reset) begin
+
+initial begin
+  col = 0;
+  key_value = 4'hz;
+  count = 0;
+  state = 0;
+  key_flag = 0;
+  clk_500khz = 0;
+  col_reg = 0;
+  row_reg = 0;
+end
+
+always @(posedge clk or posedge reset)
+  if(reset) begin
     clk_500khz<=0;
     count<=0;
   end
@@ -19,8 +31,8 @@ always @(posedge clk or negedge reset)
     if(count>=50) begin clk_500khz<=~clk_500khz;count<=0;end
     else count<=count+1;
   end
-always @(posedge clk_500khz or negedge reset)
-  if(!reset) begin col<=4'b0000;state<=0;end
+always @(posedge clk_500khz or posedge reset)
+  if(reset) begin col<=4'b0000;state<=0;end
   else begin
     case (state)
       0:begin
@@ -104,5 +116,6 @@ always @(clk_500khz or col_reg or row_reg) begin
         8'b0111_0111:key_value<=15;
       endcase
     end
+  else key_value <= 4'hz;
 end
 endmodule

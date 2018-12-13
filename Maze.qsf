@@ -85,3 +85,11 @@ set_global_assignment -name EDA_TEST_BENCH_NAME Maze_tb -section_id eda_simulati
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Maze_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Maze_tb -section_id Maze_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE Maze_tb.v -section_id Maze_tb
+set_location_assignment PIN_120 -to key_col[3]
+set_location_assignment PIN_119 -to key_col[2]
+set_location_assignment PIN_118 -to key_col[1]
+set_location_assignment PIN_117 -to key_col[0]
+set_location_assignment PIN_114 -to key_row[3]
+set_location_assignment PIN_113 -to key_row[2]
+set_location_assignment PIN_112 -to key_row[1]
+set_location_assignment PIN_110 -to key_row[0]

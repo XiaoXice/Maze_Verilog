@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Maze
-Thu Dec 06 11:27:42 2018
+Thu Dec 13 11:05:16 2018
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,14 +13,16 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: nvidia:nvidia1
- 13. Port Connectivity Checks: "nvidia:nvidia1"
- 14. Analysis & Synthesis Messages
- 15. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |Maze|commend:commend1|status
+  9. State Machine - |Maze|Key44:Key441|state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: nvidia:nvidia1
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -46,12 +48,12 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Dec 06 11:27:42 2018       ;
+; Analysis & Synthesis Status ; Successful - Thu Dec 13 11:05:16 2018       ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name               ; Maze                                        ;
 ; Top-level Entity Name       ; Maze                                        ;
 ; Family                      ; MAX II                                      ;
-; Total logic elements        ; 592                                         ;
+; Total logic elements        ; 975                                         ;
 ; Total pins                  ; 34                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
@@ -145,15 +147,17 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                             ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                         ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
-; maze.v                           ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v   ;         ;
-; memory.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Xice/OneDrive - 0xice/verilog/Maze/memory.v ;         ;
-; nvidia.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                          ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
+; maze.v                           ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v    ;         ;
+; Key44.v                          ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v   ;         ;
+; commend.v                        ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v ;         ;
+; memory.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Xice/OneDrive - 0xice/verilog/Maze/memory.v  ;         ;
+; nvidia.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v  ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -161,69 +165,126 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 592   ;
-;     -- Combinational with no register       ; 269   ;
-;     -- Register only                        ; 241   ;
-;     -- Combinational with a register        ; 82    ;
+; Total logic elements                        ; 975   ;
+;     -- Combinational with no register       ; 576   ;
+;     -- Register only                        ; 263   ;
+;     -- Combinational with a register        ; 136   ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 221   ;
-;     -- 3 input functions                    ; 65    ;
-;     -- 2 input functions                    ; 20    ;
-;     -- 1 input functions                    ; 45    ;
+;     -- 4 input functions                    ; 475   ;
+;     -- 3 input functions                    ; 106   ;
+;     -- 2 input functions                    ; 78    ;
+;     -- 1 input functions                    ; 53    ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 578   ;
-;     -- arithmetic mode                      ; 14    ;
+;     -- normal mode                          ; 938   ;
+;     -- arithmetic mode                      ; 37    ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 0     ;
-;     -- asynchronous clear/load mode         ; 195   ;
+;     -- synchronous clear/load mode          ; 12    ;
+;     -- asynchronous clear/load mode         ; 251   ;
 ;                                             ;       ;
-; Total registers                             ; 323   ;
-; Total logic cells in carry chains           ; 16    ;
+; Total registers                             ; 399   ;
+; Total logic cells in carry chains           ; 44    ;
 ; I/O pins                                    ; 34    ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 323   ;
-; Total fan-out                               ; 2257  ;
-; Average fan-out                             ; 3.61  ;
+; Maximum fan-out                             ; 380   ;
+; Total fan-out                               ; 3734  ;
+; Average fan-out                             ; 3.70  ;
 +---------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name  ; Entity Name ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+-------------+--------------+
-; |Maze                      ; 592 (0)     ; 323          ; 0          ; 34   ; 0            ; 269 (0)      ; 241 (0)           ; 82 (0)           ; 16 (0)          ; 0 (0)      ; |Maze                ; Maze        ; work         ;
-;    |memory:memory1|        ; 212 (212)   ; 128          ; 0          ; 0    ; 0            ; 84 (84)      ; 87 (87)           ; 41 (41)          ; 0 (0)           ; 0 (0)      ; |Maze|memory:memory1 ; memory      ; work         ;
-;    |nvidia:nvidia1|        ; 380 (380)   ; 195          ; 0          ; 0    ; 0            ; 185 (185)    ; 154 (154)         ; 41 (41)          ; 16 (16)         ; 0 (0)      ; |Maze|nvidia:nvidia1 ; nvidia      ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+-------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                   ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name    ; Entity Name ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------+-------------+--------------+
+; |Maze                      ; 975 (0)     ; 399          ; 0          ; 34   ; 0            ; 576 (0)      ; 263 (0)           ; 136 (0)          ; 44 (0)          ; 0 (0)      ; |Maze                  ; Maze        ; work         ;
+;    |Key44:Key441|          ; 57 (57)     ; 26           ; 0          ; 0    ; 0            ; 31 (31)      ; 8 (8)             ; 18 (18)          ; 6 (6)           ; 0 (0)      ; |Maze|Key44:Key441     ; Key44       ; work         ;
+;    |commend:commend1|      ; 100 (100)   ; 42           ; 0          ; 0    ; 0            ; 58 (58)      ; 8 (8)             ; 34 (34)          ; 16 (16)         ; 0 (0)      ; |Maze|commend:commend1 ; commend     ; work         ;
+;    |memory:memory1|        ; 294 (294)   ; 128          ; 0          ; 0    ; 0            ; 166 (166)    ; 86 (86)           ; 42 (42)          ; 0 (0)           ; 0 (0)      ; |Maze|memory:memory1   ; memory      ; work         ;
+;    |nvidia:nvidia1|        ; 524 (524)   ; 203          ; 0          ; 0    ; 0            ; 321 (321)    ; 161 (161)         ; 42 (42)          ; 22 (22)         ; 0 (0)      ; |Maze|nvidia:nvidia1   ; nvidia      ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Maze|commend:commend1|status                                                                               ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; Name        ; status.0111 ; status.0110 ; status.0101 ; status.0100 ; status.0011 ; status.0010 ; status.0001 ; status.0000 ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+; status.0000 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ;
+; status.0001 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 1           ;
+; status.0010 ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 1           ;
+; status.0011 ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 1           ;
+; status.0100 ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 1           ;
+; status.0101 ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; status.0110 ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
+; status.0111 ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ;
++-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                ;
-+----------------------------------------+------------------------------------------+
-; Register name                          ; Reason for Removal                       ;
-+----------------------------------------+------------------------------------------+
-; nvidia:nvidia1|address[0]~en           ; Stuck at VCC due to stuck port data_in   ;
-; nvidia:nvidia1|address[1]~en           ; Stuck at VCC due to stuck port data_in   ;
-; nvidia:nvidia1|address[2]~en           ; Stuck at VCC due to stuck port data_in   ;
-; nvidia:nvidia1|address[3]~en           ; Stuck at VCC due to stuck port data_in   ;
-; nvidia:nvidia1|address[4]~en           ; Stuck at VCC due to stuck port data_in   ;
-; nvidia:nvidia1|address[5]~en           ; Stuck at VCC due to stuck port data_in   ;
-; nvidia:nvidia1|address[0]~reg0         ; Merged with nvidia:nvidia1|cnt[0]        ;
-; nvidia:nvidia1|col_cnt[0]              ; Merged with nvidia:nvidia1|address_in[0] ;
-; nvidia:nvidia1|address[1]~reg0         ; Merged with nvidia:nvidia1|cnt[1]        ;
-; nvidia:nvidia1|col_cnt[1]              ; Merged with nvidia:nvidia1|address_in[1] ;
-; nvidia:nvidia1|address[2]~reg0         ; Merged with nvidia:nvidia1|cnt[2]        ;
-; nvidia:nvidia1|address[3]~reg0         ; Merged with nvidia:nvidia1|cnt[3]        ;
-; nvidia:nvidia1|address[4]~reg0         ; Merged with nvidia:nvidia1|cnt[4]        ;
-; nvidia:nvidia1|address[5]~reg0         ; Merged with nvidia:nvidia1|cnt[5]        ;
-; Total Number of Removed Registers = 14 ;                                          ;
-+----------------------------------------+------------------------------------------+
+; State Machine - |Maze|Key44:Key441|state                                          ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; Name      ; state.101 ; state.100 ; state.011 ; state.010 ; state.001 ; state.000 ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; state.000 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ;
+; state.001 ; 0         ; 0         ; 0         ; 0         ; 1         ; 1         ;
+; state.010 ; 0         ; 0         ; 0         ; 1         ; 0         ; 1         ;
+; state.011 ; 0         ; 0         ; 1         ; 0         ; 0         ; 1         ;
+; state.100 ; 0         ; 1         ; 0         ; 0         ; 0         ; 1         ;
+; state.101 ; 1         ; 0         ; 0         ; 0         ; 0         ; 1         ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++----------------------------------------------------+----------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal  ; Free of Timing Hazards ;
++----------------------------------------------------+----------------------+------------------------+
+; Key44:Key441|key_value[0]$latch                    ; Key44:Key441|WideOr4 ; yes                    ;
+; Key44:Key441|key_value[1]$latch                    ; Key44:Key441|WideOr4 ; yes                    ;
+; Key44:Key441|key_value[2]$latch                    ; Key44:Key441|WideOr4 ; yes                    ;
+; Key44:Key441|key_value[3]$latch                    ; Key44:Key441|WideOr4 ; yes                    ;
+; Number of user-specified and inferred latches = 4  ;                      ;                        ;
++----------------------------------------------------+----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++----------------------------------------+-----------------------------------------------+
+; Register name                          ; Reason for Removal                            ;
++----------------------------------------+-----------------------------------------------+
+; commend:commend1|key_value_tmp[2]~en   ; Lost fanout                                   ;
+; commend:commend1|key_value_tmp[1]~en   ; Lost fanout                                   ;
+; commend:commend1|key_value_tmp[0]~en   ; Lost fanout                                   ;
+; commend:commend1|key_value_tmp[3]~en   ; Lost fanout                                   ;
+; commend:commend1|key_value_tmp[0]      ; Merged with commend:commend1|key_value_tmp[2] ;
+; nvidia:nvidia1|address_in[0]           ; Merged with nvidia:nvidia1|col_cnt[0]         ;
+; commend:commend1|data_out[0]           ; Stuck at GND due to stuck port data_in        ;
+; commend:commend1|status~12             ; Lost fanout                                   ;
+; commend:commend1|status~13             ; Lost fanout                                   ;
+; commend:commend1|status~14             ; Lost fanout                                   ;
+; commend:commend1|status~15             ; Lost fanout                                   ;
+; Key44:Key441|state~4                   ; Lost fanout                                   ;
+; Key44:Key441|state~5                   ; Lost fanout                                   ;
+; Key44:Key441|state~6                   ; Lost fanout                                   ;
+; nvidia:nvidia1|address_out[0]~en       ; Merged with nvidia:nvidia1|address_out[4]~en  ;
+; nvidia:nvidia1|address_out[1]~en       ; Merged with nvidia:nvidia1|address_out[4]~en  ;
+; nvidia:nvidia1|address_out[2]~en       ; Merged with nvidia:nvidia1|address_out[4]~en  ;
+; nvidia:nvidia1|address_out[3]~en       ; Merged with nvidia:nvidia1|address_out[4]~en  ;
+; nvidia:nvidia1|address_out[5]~en       ; Merged with nvidia:nvidia1|address_out[4]~en  ;
+; commend:commend1|address[1]~en         ; Merged with commend:commend1|address[0]~en    ;
+; commend:commend1|address[2]~en         ; Merged with commend:commend1|address[0]~en    ;
+; commend:commend1|address[4]~en         ; Merged with commend:commend1|address[3]~en    ;
+; commend:commend1|address[5]~en         ; Merged with commend:commend1|address[3]~en    ;
+; Total Number of Removed Registers = 23 ;                                               ;
++----------------------------------------+-----------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -231,12 +292,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 323   ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 195   ;
+; Total registers                              ; 399   ;
+; Number of registers using Synchronous Clear  ; 6     ;
+; Number of registers using Synchronous Load   ; 6     ;
+; Number of registers using Asynchronous Clear ; 251   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 310   ;
+; Number of registers using Clock Enable       ; 348   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -260,17 +321,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; nvidia:nvidia1|row_tmp[5]               ; 2       ;
 ; nvidia:nvidia1|row_tmp[6]               ; 2       ;
 ; nvidia:nvidia1|row_tmp[7]               ; 2       ;
-; Total number of inverted registers = 14 ;         ;
+; commend:commend1|NVcommend              ; 77      ;
+; nvidia:nvidia1|address_out[4]~en        ; 14      ;
+; Total number of inverted registers = 16 ;         ;
 +-----------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |Maze|nvidia:nvidia1|Mux2  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |Maze|commend:commend1|k[1]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Maze|commend:commend1|data_out[1]     ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Maze|commend:commend1|address[1]~reg0 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Maze|commend:commend1|address[4]~reg0 ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |Maze|nvidia:nvidia1|Mux2              ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Maze|commend:commend1|Selector25      ;
+; 65:1               ; 2 bits    ; 86 LEs        ; 86 LEs               ; 0 LEs                  ; No         ; |Maze|nvidia:nvidia1|memN              ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; No         ; |Maze|commend:commend1|Selector2       ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |Maze|commend:commend1|Selector7       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 
 
 +-------------------------------------------------------------+
@@ -283,84 +354,117 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------+
-; Port Connectivity Checks: "nvidia:nvidia1" ;
-+--------+-------+----------+----------------+
-; Port   ; Type  ; Severity ; Details        ;
-+--------+-------+----------+----------------+
-; enable ; Input ; Info     ; Stuck at VCC   ;
-+--------+-------+----------+----------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Dec 06 11:27:19 2018
+    Info: Processing started: Thu Dec 13 11:04:57 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Maze -c Maze
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Warning (12125): Using design file maze.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: Maze File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 3
+Warning (12125): Using design file maze.v, which is not specified as a design file for the current project, but contains definitions for 2 design units and 2 entities in project
+    Info (12023): Found entity 1: Key44 File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 1
+    Info (12023): Found entity 2: Maze File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 3
 Info (12127): Elaborating entity "Maze" for the top level hierarchy
+Info (12128): Elaborating entity "Key44" for hierarchy "Key44:Key441" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 27
+Warning (10230): Verilog HDL assignment warning at Key44.v(32): truncated value with size 32 to match size of target (6) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 32
+Warning (10235): Verilog HDL Always Construct warning at Key44.v(98): variable "key_flag" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 98
+Warning (10270): Verilog HDL Case Statement warning at Key44.v(100): incomplete case statement has no default case item File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 100
+Warning (10240): Verilog HDL Always Construct warning at Key44.v(97): inferring latch(es) for variable "key_value", which holds its previous value in one or more paths through the always construct File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Info (10041): Inferred latch for "key_value[0]" at Key44.v(97) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Info (10041): Inferred latch for "key_value[1]" at Key44.v(97) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Info (10041): Inferred latch for "key_value[2]" at Key44.v(97) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Info (10041): Inferred latch for "key_value[3]" at Key44.v(97) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Warning (12125): Using design file commend.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: commend File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 2
+Info (12128): Elaborating entity "commend" for hierarchy "commend:commend1" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 37
+Warning (10230): Verilog HDL assignment warning at commend.v(95): truncated value with size 32 to match size of target (6) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 95
+Warning (10230): Verilog HDL assignment warning at commend.v(96): truncated value with size 32 to match size of target (6) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 96
+Warning (10230): Verilog HDL assignment warning at commend.v(151): truncated value with size 32 to match size of target (11) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 151
+Warning (10230): Verilog HDL assignment warning at commend.v(153): truncated value with size 32 to match size of target (2) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 153
+Warning (10230): Verilog HDL assignment warning at commend.v(157): truncated value with size 32 to match size of target (6) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 157
 Warning (12125): Using design file memory.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: memory File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/memory.v Line: 2
 Info (12128): Elaborating entity "memory" for hierarchy "memory:memory1" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 46
 Warning (12125): Using design file nvidia.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: nvidia File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 2
 Info (12128): Elaborating entity "nvidia" for hierarchy "nvidia:nvidia1" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 58
-Warning (10230): Verilog HDL assignment warning at nvidia.v(38): truncated value with size 20 to match size of target (12) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 38
+Warning (10230): Verilog HDL assignment warning at nvidia.v(40): truncated value with size 20 to match size of target (12) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 40
 Warning (10230): Verilog HDL assignment warning at nvidia.v(42): truncated value with size 20 to match size of target (12) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 42
-Warning (10230): Verilog HDL assignment warning at nvidia.v(45): truncated value with size 32 to match size of target (1) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 45
-Warning (10230): Verilog HDL assignment warning at nvidia.v(58): truncated value with size 21 to match size of target (2) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 58
-Warning (10240): Verilog HDL Always Construct warning at nvidia.v(56): inferring latch(es) for variable "k", which holds its previous value in one or more paths through the always construct File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 56
-Warning (10230): Verilog HDL assignment warning at nvidia.v(223): truncated value with size 32 to match size of target (2) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 223
+Warning (10230): Verilog HDL assignment warning at nvidia.v(47): truncated value with size 32 to match size of target (1) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 47
+Warning (10230): Verilog HDL assignment warning at nvidia.v(60): truncated value with size 21 to match size of target (2) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 60
+Warning (10240): Verilog HDL Always Construct warning at nvidia.v(58): inferring latch(es) for variable "k", which holds its previous value in one or more paths through the always construct File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 58
+Warning (10230): Verilog HDL assignment warning at nvidia.v(248): truncated value with size 32 to match size of target (2) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 248
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13049): Converted tri-state buffer "nvidia:nvidia1|address[0]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 61
-    Warning (13049): Converted tri-state buffer "nvidia:nvidia1|address[1]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 61
-    Warning (13049): Converted tri-state buffer "nvidia:nvidia1|address[2]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 61
-    Warning (13049): Converted tri-state buffer "nvidia:nvidia1|address[3]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 61
-    Warning (13049): Converted tri-state buffer "nvidia:nvidia1|address[4]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 61
-    Warning (13049): Converted tri-state buffer "nvidia:nvidia1|address[5]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 61
-Warning (13044): Always-enabled tri-state buffer(s) removed
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "nvidia:nvidia1|command" to the node "data[0]" into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "nvidia:nvidia1|command" to the node "data[1]" into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "data[0]" to the node "memory:memory1|data_in[0]" into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 15
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "data[1]" to the node "memory:memory1|data_in[1]" into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 15
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "nvidia:nvidia1|command" to the node "memory:memory1|data_in[0]" into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
-    Warning (13045): Converted the fanout from the always-enabled tri-state buffer "nvidia:nvidia1|command" to the node "memory:memory1|data_in[1]" into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
+    Warning (13049): Converted tri-state buffer "commend:commend1|key_value_tmp[2]~0" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13049): Converted tri-state buffer "commend:commend1|key_value_tmp[1]~1" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13049): Converted tri-state buffer "commend:commend1|key_value_tmp[0]~2" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13049): Converted tri-state buffer "commend:commend1|key_value_tmp[3]~3" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13049): Converted tri-state buffer "Key44:Key441|key_value[3]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+    Warning (13049): Converted tri-state buffer "Key44:Key441|key_value[2]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+    Warning (13049): Converted tri-state buffer "Key44:Key441|key_value[1]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+    Warning (13049): Converted tri-state buffer "Key44:Key441|key_value[0]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|data_in[0]" to the node "commend:commend1|Equal1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 12
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|data_in[1]" to the node "commend:commend1|Equal1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 12
     Warning (13047): Converted the fan-out from the tri-state buffer "memory:memory1|data_in[0]" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/memory.v Line: 78
     Warning (13047): Converted the fan-out from the tri-state buffer "memory:memory1|data_in[1]" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/memory.v Line: 78
-    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|command" to the node "data[0]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
-    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|command" to the node "data[1]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
-    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|command" to the node "data[0]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
-    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|command" to the node "data[1]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
-    Warning (13047): Converted the fan-out from the tri-state buffer "data[0]" to the node "nvidia:nvidia1|memN[0][0]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 15
-    Warning (13047): Converted the fan-out from the tri-state buffer "data[1]" to the node "nvidia:nvidia1|memN[0][1]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 15
-    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|command" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 8
-Info (18000): Registers with preset signals will power-up high File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 83
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "key_row[0]" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 6
-    Warning (15610): No output dependent on input pin "key_row[1]" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 6
-    Warning (15610): No output dependent on input pin "key_row[2]" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 6
-    Warning (15610): No output dependent on input pin "key_row[3]" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 6
-    Warning (15610): No output dependent on input pin "key_col[0]" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 7
-    Warning (15610): No output dependent on input pin "key_col[1]" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 7
-    Warning (15610): No output dependent on input pin "key_col[2]" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 7
-    Warning (15610): No output dependent on input pin "key_col[3]" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 7
-Info (21057): Implemented 626 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 24 output pins
-    Info (21061): Implemented 592 logic cells
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|commend" to the node "commend:commend1|data[1]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|commend" to the node "commend:commend1|data_in[0]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|commend" to the node "commend:commend1|data_in[1]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[1]" to the node "nvidia:nvidia1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[0]" to the node "nvidia:nvidia1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[2]" to the node "nvidia:nvidia1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[3]" to the node "nvidia:nvidia1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[5]" to the node "nvidia:nvidia1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[4]" to the node "nvidia:nvidia1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address_out[4]" to the node "nvidia:nvidia1|Decoder0" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 63
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address_out[5]" to the node "nvidia:nvidia1|Decoder0" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 63
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address_out[0]" to the node "nvidia:nvidia1|address_out[0]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 63
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address_out[1]" to the node "nvidia:nvidia1|Decoder0" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 63
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address_out[2]" to the node "nvidia:nvidia1|Decoder0" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 63
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address_out[3]" to the node "nvidia:nvidia1|Decoder0" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 63
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|address[0]" to the node "commend:commend1|Equal2" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|address[1]" to the node "commend:commend1|Equal2" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|address[2]" to the node "commend:commend1|Equal2" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|address[3]" to the node "commend:commend1|address[3]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|address[5]" to the node "commend:commend1|address[5]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|address[4]" to the node "commend:commend1|address[4]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 50
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|commend" to the node "commend:commend1|data_in[0]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|commend" to the node "commend:commend1|data_in[1]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 7
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|commend" to the node "commend:commend1|data[0]" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|data[0]" to the node "nvidia:nvidia1|memN" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 10
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|data[1]" to the node "nvidia:nvidia1|memN" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 10
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[1]" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[0]" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[2]" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[3]" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[5]" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[4]" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|commend" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 7
+Warning (13012): Latch Key44:Key441|key_value[0]$latch has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|row_reg[2] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
+Warning (13012): Latch Key44:Key441|key_value[1]$latch has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|row_reg[1] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
+Warning (13012): Latch Key44:Key441|key_value[2]$latch has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|col_reg[2] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
+Warning (13012): Latch Key44:Key441|key_value[3]$latch has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|col_reg[1] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
+Info (18000): Registers with preset signals will power-up high File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 85
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 1009 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 975 logic cells
 Info (144001): Generated suppressed messages file C:/Users/Xice/OneDrive - 0xice/verilog/Maze/output_files/Maze.map.smsg
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 4710 megabytes
-    Info: Processing ended: Thu Dec 06 11:27:42 2018
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:40
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 76 warnings
+    Info: Peak virtual memory: 4711 megabytes
+    Info: Processing ended: Thu Dec 13 11:05:16 2018
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:29
 
 
 +------------------------------------------+
