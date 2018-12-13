@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Maze
-Thu Dec 13 11:05:16 2018
+Thu Dec 13 11:10:05 2018
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -48,12 +48,12 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Dec 13 11:05:16 2018       ;
+; Analysis & Synthesis Status ; Successful - Thu Dec 13 11:10:05 2018       ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name               ; Maze                                        ;
 ; Top-level Entity Name       ; Maze                                        ;
 ; Family                      ; MAX II                                      ;
-; Total logic elements        ; 975                                         ;
+; Total logic elements        ; 990                                         ;
 ; Total pins                  ; 34                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
@@ -165,33 +165,33 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 975   ;
-;     -- Combinational with no register       ; 576   ;
+; Total logic elements                        ; 990   ;
+;     -- Combinational with no register       ; 581   ;
 ;     -- Register only                        ; 263   ;
-;     -- Combinational with a register        ; 136   ;
+;     -- Combinational with a register        ; 146   ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 475   ;
+;     -- 4 input functions                    ; 481   ;
 ;     -- 3 input functions                    ; 106   ;
-;     -- 2 input functions                    ; 78    ;
+;     -- 2 input functions                    ; 87    ;
 ;     -- 1 input functions                    ; 53    ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 938   ;
-;     -- arithmetic mode                      ; 37    ;
+;     -- normal mode                          ; 943   ;
+;     -- arithmetic mode                      ; 47    ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
 ;     -- synchronous clear/load mode          ; 12    ;
-;     -- asynchronous clear/load mode         ; 251   ;
+;     -- asynchronous clear/load mode         ; 261   ;
 ;                                             ;       ;
-; Total registers                             ; 399   ;
-; Total logic cells in carry chains           ; 44    ;
+; Total registers                             ; 409   ;
+; Total logic cells in carry chains           ; 54    ;
 ; I/O pins                                    ; 34    ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 380   ;
-; Total fan-out                               ; 3734  ;
-; Average fan-out                             ; 3.70  ;
+; Maximum fan-out                             ; 390   ;
+; Total fan-out                               ; 3806  ;
+; Average fan-out                             ; 3.72  ;
 +---------------------------------------------+-------+
 
 
@@ -200,9 +200,9 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name    ; Entity Name ; Library Name ;
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------+-------------+--------------+
-; |Maze                      ; 975 (0)     ; 399          ; 0          ; 34   ; 0            ; 576 (0)      ; 263 (0)           ; 136 (0)          ; 44 (0)          ; 0 (0)      ; |Maze                  ; Maze        ; work         ;
+; |Maze                      ; 990 (0)     ; 409          ; 0          ; 34   ; 0            ; 581 (0)      ; 263 (0)           ; 146 (0)          ; 54 (0)          ; 0 (0)      ; |Maze                  ; Maze        ; work         ;
 ;    |Key44:Key441|          ; 57 (57)     ; 26           ; 0          ; 0    ; 0            ; 31 (31)      ; 8 (8)             ; 18 (18)          ; 6 (6)           ; 0 (0)      ; |Maze|Key44:Key441     ; Key44       ; work         ;
-;    |commend:commend1|      ; 100 (100)   ; 42           ; 0          ; 0    ; 0            ; 58 (58)      ; 8 (8)             ; 34 (34)          ; 16 (16)         ; 0 (0)      ; |Maze|commend:commend1 ; commend     ; work         ;
+;    |commend:commend1|      ; 115 (115)   ; 52           ; 0          ; 0    ; 0            ; 63 (63)      ; 8 (8)             ; 44 (44)          ; 26 (26)         ; 0 (0)      ; |Maze|commend:commend1 ; commend     ; work         ;
 ;    |memory:memory1|        ; 294 (294)   ; 128          ; 0          ; 0    ; 0            ; 166 (166)    ; 86 (86)           ; 42 (42)          ; 0 (0)           ; 0 (0)      ; |Maze|memory:memory1   ; memory      ; work         ;
 ;    |nvidia:nvidia1|        ; 524 (524)   ; 203          ; 0          ; 0    ; 0            ; 321 (321)    ; 161 (161)         ; 42 (42)          ; 22 (22)         ; 0 (0)      ; |Maze|nvidia:nvidia1   ; nvidia      ; work         ;
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------+-------------+--------------+
@@ -292,12 +292,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 399   ;
+; Total registers                              ; 409   ;
 ; Number of registers using Synchronous Clear  ; 6     ;
 ; Number of registers using Synchronous Load   ; 6     ;
-; Number of registers using Asynchronous Clear ; 251   ;
+; Number of registers using Asynchronous Clear ; 261   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 348   ;
+; Number of registers using Clock Enable       ; 358   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -360,7 +360,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Dec 13 11:04:57 2018
+    Info: Processing started: Thu Dec 13 11:09:35 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Maze -c Maze
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -382,7 +382,7 @@ Warning (12125): Using design file commend.v, which is not specified as a design
 Info (12128): Elaborating entity "commend" for hierarchy "commend:commend1" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 37
 Warning (10230): Verilog HDL assignment warning at commend.v(95): truncated value with size 32 to match size of target (6) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 95
 Warning (10230): Verilog HDL assignment warning at commend.v(96): truncated value with size 32 to match size of target (6) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 96
-Warning (10230): Verilog HDL assignment warning at commend.v(151): truncated value with size 32 to match size of target (11) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 151
+Warning (10230): Verilog HDL assignment warning at commend.v(151): truncated value with size 32 to match size of target (21) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 151
 Warning (10230): Verilog HDL assignment warning at commend.v(153): truncated value with size 32 to match size of target (2) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 153
 Warning (10230): Verilog HDL assignment warning at commend.v(157): truncated value with size 32 to match size of target (6) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 157
 Warning (12125): Using design file memory.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
@@ -455,16 +455,16 @@ Warning (13012): Latch Key44:Key441|key_value[3]$latch has unsafe behavior File:
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|col_reg[1] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
 Info (18000): Registers with preset signals will power-up high File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 85
 Info (17049): 11 registers lost all their fanouts during netlist optimizations.
-Info (21057): Implemented 1009 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1024 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 975 logic cells
+    Info (21061): Implemented 990 logic cells
 Info (144001): Generated suppressed messages file C:/Users/Xice/OneDrive - 0xice/verilog/Maze/output_files/Maze.map.smsg
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 76 warnings
     Info: Peak virtual memory: 4711 megabytes
-    Info: Processing ended: Thu Dec 13 11:05:16 2018
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:29
+    Info: Processing ended: Thu Dec 13 11:10:05 2018
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:31
 
 
 +------------------------------------------+

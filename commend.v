@@ -171,28 +171,6 @@ always @(posedge clk or posedge nst) begin
       end
       default: status <= 0;
     endcase
-  // case (status)
-  //   0: begin
-  //     cnt <= cnt + 1;
-  //     if(cnt == 0)begin
-  //       address <= k;
-  //       data_out <= OtherStatus + 1;
-  //       k <= k + 1;
-  //       OtherStatus <= OtherStatus + 1;
-  //       NVcommend <= 1'b0;
-  //       commend <= 1'b0;
-  //     end
-  //     else begin
-  //       commend <= 1'bz;
-  //       address <= {6{1'bz}};
-  //       NVcommend <= 1'b1;
-  //     end
-  //   end
-  //   default: begin
-  //     status <= 0;
-  //   end
-  // endcase
-
 end
 
 endmodule // commend

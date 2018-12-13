@@ -1,5 +1,5 @@
 Flow report for Maze
-Thu Dec 13 11:05:39 2018
+Thu Dec 13 11:10:29 2018
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,14 +40,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------+
 ; Flow Summary                                                        ;
 +-----------------------+---------------------------------------------+
-; Flow Status           ; Successful - Thu Dec 13 11:05:39 2018       ;
+; Flow Status           ; Successful - Thu Dec 13 11:10:29 2018       ;
 ; Quartus Prime Version ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name         ; Maze                                        ;
 ; Top-level Entity Name ; Maze                                        ;
 ; Family                ; MAX II                                      ;
 ; Device                ; EPM1270T144C5                               ;
 ; Timing Models         ; Final                                       ;
-; Total logic elements  ; 778 / 1,270 ( 61 % )                        ;
+; Total logic elements  ; 793 / 1,270 ( 62 % )                        ;
 ; Total pins            ; 34 / 116 ( 29 % )                           ;
 ; Total virtual pins    ; 0                                           ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                               ;
@@ -59,7 +59,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/13/2018 11:05:00 ;
+; Start date & time ; 12/13/2018 11:09:43 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Maze                ;
 +-------------------+---------------------+
@@ -70,7 +70,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                       ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +---------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                 ; 141812761798319.154467029815500 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                 ; 141812761798319.154467058208920 ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME              ; NA                              ; --            ; --          ; Maze_tb        ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH  ; Maze_tb                         ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT                ; Verilog Hdl                     ; --            ; --          ; eda_simulation ;
@@ -93,12 +93,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 4711 MB             ; 00:00:29                           ;
+; Analysis & Synthesis ; 00:00:30     ; 1.0                     ; 4711 MB             ; 00:00:31                           ;
 ; Fitter               ; 00:00:10     ; 1.0                     ; 5338 MB             ; 00:00:11                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4657 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 4680 MB             ; 00:00:04                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4657 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 4684 MB             ; 00:00:04                           ;
 ; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4622 MB             ; 00:00:03                           ;
-; Total                ; 00:00:38     ; --                      ; --                  ; 00:00:48                           ;
+; Total                ; 00:00:50     ; --                      ; --                  ; 00:00:50                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
