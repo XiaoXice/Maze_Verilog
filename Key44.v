@@ -4,7 +4,7 @@ module Key44(
   output reg [3:0] col, //列
   output reg [3:0] key_value //键值
 );
-reg [5:0] count;  //delay_20ms
+reg [12:0] count;  //delay_20ms
 reg [2:0] state;  //状态标志
 reg key_flag;   //按键标志位
 reg clk_500khz;  //500KHZ时钟信号
@@ -28,7 +28,7 @@ always @(posedge clk or posedge reset)
     count<=0;
   end
   else begin
-    if(count>=50) begin clk_500khz<=~clk_500khz;count<=0;end
+    if(count>=5000) begin clk_500khz<=~clk_500khz;count<=0;end
     else count<=count+1;
   end
 always @(posedge clk_500khz or posedge reset)
@@ -116,6 +116,6 @@ always @(clk_500khz or col_reg or row_reg) begin
         8'b0111_0111:key_value<=15;
       endcase
     end
-  else key_value <= 4'hz;
+  else key_value <= 0;
 end
 endmodule

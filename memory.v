@@ -87,7 +87,7 @@ assign data = command ? mem[address] : {`MEMORYSIZE{1'bz}};
 always @(posedge clk or posedge rst) begin
   count <= ~count;
   if (rst) begin
-    case (count)
+    case (address[0]^address[1]^address[3])
       1'b0:begin
         mem[0] = 2'b1;
         mem[1] = 2'b1;

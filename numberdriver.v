@@ -10,7 +10,7 @@ assign LED_CAT_out = {6'b111111,LED_CAT};
 reg [7:0] number_list [10:0];
 reg [5:0] count;
 initial begin
-  LED_CAT = 1'b01;
+  LED_CAT = 2'b01;
   LED_NUM = 9'h00;
   count = {6{1'b0}};
   number_list[0]= 8'b00111111; // 0
@@ -27,7 +27,7 @@ end
 
 always @(posedge clk or posedge rst) begin
   if(rst) begin
-    LED_CAT <= 1'b01;
+    LED_CAT <= 2'b01;
     LED_NUM <= 8'h00;
     count <= {6{1'b0}};
   end

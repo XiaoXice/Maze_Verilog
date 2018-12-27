@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Maze
-Thu Dec 20 10:16:49 2018
+Thu Dec 27 09:07:00 2018
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -16,11 +16,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   8. State Machine - |Maze|commend:commend1|status
   9. State Machine - |Maze|Key44:Key441|state
  10. User-Specified and Inferred Latches
- 11. Logic Cells Representing Combinational Loops
- 12. Registers Removed During Synthesis
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: timechecker:timechecker1
  16. Parameter Settings for User Entity Instance: nvidia:nvidia1
  17. Analysis & Synthesis Messages
  18. Analysis & Synthesis Suppressed Messages
@@ -49,12 +49,12 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Dec 20 10:16:49 2018       ;
+; Analysis & Synthesis Status ; Successful - Thu Dec 27 09:07:00 2018       ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name               ; Maze                                        ;
 ; Top-level Entity Name       ; Maze                                        ;
 ; Family                      ; MAX II                                      ;
-; Total logic elements        ; 1,104                                       ;
+; Total logic elements        ; 1,111                                       ;
 ; Total pins                  ; 50                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
@@ -138,7 +138,7 @@ refer to the applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -168,33 +168,33 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 1104  ;
+; Total logic elements                        ; 1111  ;
 ;     -- Combinational with no register       ; 646   ;
 ;     -- Register only                        ; 277   ;
-;     -- Combinational with a register        ; 181   ;
+;     -- Combinational with a register        ; 188   ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 539   ;
-;     -- 3 input functions                    ; 110   ;
-;     -- 2 input functions                    ; 123   ;
+;     -- 4 input functions                    ; 540   ;
+;     -- 3 input functions                    ; 108   ;
+;     -- 2 input functions                    ; 131   ;
 ;     -- 1 input functions                    ; 55    ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
 ;     -- normal mode                          ; 1033  ;
-;     -- arithmetic mode                      ; 71    ;
+;     -- arithmetic mode                      ; 78    ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 6     ;
-;     -- asynchronous clear/load mode         ; 437   ;
+;     -- synchronous clear/load mode          ; 13    ;
+;     -- asynchronous clear/load mode         ; 444   ;
 ;                                             ;       ;
-; Total registers                             ; 458   ;
-; Total logic cells in carry chains           ; 78    ;
+; Total registers                             ; 465   ;
+; Total logic cells in carry chains           ; 85    ;
 ; I/O pins                                    ; 50    ;
 ; Maximum fan-out node                        ; nst   ;
-; Maximum fan-out                             ; 440   ;
-; Total fan-out                               ; 4403  ;
-; Average fan-out                             ; 3.82  ;
+; Maximum fan-out                             ; 447   ;
+; Total fan-out                               ; 4443  ;
+; Average fan-out                             ; 3.83  ;
 +---------------------------------------------+-------+
 
 
@@ -203,13 +203,13 @@ refer to the applicable agreement for further details.
 +---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+--------------+
 ; Compilation Hierarchy Node      ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name              ; Entity Name  ; Library Name ;
 +---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+--------------+
-; |Maze                           ; 1104 (0)    ; 458          ; 0          ; 50   ; 0            ; 646 (0)      ; 277 (0)           ; 181 (0)          ; 78 (0)          ; 0 (0)      ; |Maze                            ; Maze         ; work         ;
-;    |Key44:Key441|               ; 57 (57)     ; 26           ; 0          ; 0    ; 0            ; 31 (31)      ; 8 (8)             ; 18 (18)          ; 6 (6)           ; 0 (0)      ; |Maze|Key44:Key441               ; Key44        ; work         ;
+; |Maze                           ; 1111 (0)    ; 465          ; 0          ; 50   ; 0            ; 646 (0)      ; 277 (0)           ; 188 (0)          ; 85 (0)          ; 0 (0)      ; |Maze                            ; Maze         ; work         ;
+;    |Key44:Key441|               ; 65 (65)     ; 33           ; 0          ; 0    ; 0            ; 32 (32)      ; 8 (8)             ; 25 (25)          ; 13 (13)         ; 0 (0)      ; |Maze|Key44:Key441               ; Key44        ; work         ;
 ;    |commend:commend1|           ; 131 (131)   ; 54           ; 0          ; 0    ; 0            ; 77 (77)      ; 10 (10)           ; 44 (44)          ; 21 (21)         ; 0 (0)      ; |Maze|commend:commend1           ; commend      ; work         ;
-;    |memory:memory1|             ; 295 (295)   ; 128          ; 0          ; 0    ; 0            ; 167 (167)    ; 86 (86)           ; 42 (42)          ; 0 (0)           ; 0 (0)      ; |Maze|memory:memory1             ; memory       ; work         ;
+;    |memory:memory1|             ; 293 (293)   ; 128          ; 0          ; 0    ; 0            ; 165 (165)    ; 86 (86)           ; 42 (42)          ; 0 (0)           ; 0 (0)      ; |Maze|memory:memory1             ; memory       ; work         ;
 ;    |numberdriver:numberdriver1| ; 29 (29)     ; 14           ; 0          ; 0    ; 0            ; 15 (15)      ; 0 (0)             ; 14 (14)          ; 5 (5)           ; 0 (0)      ; |Maze|numberdriver:numberdriver1 ; numberdriver ; work         ;
 ;    |nvidia:nvidia1|             ; 524 (524)   ; 203          ; 0          ; 0    ; 0            ; 321 (321)    ; 161 (161)         ; 42 (42)          ; 22 (22)         ; 0 (0)      ; |Maze|nvidia:nvidia1             ; nvidia       ; work         ;
-;    |timechecker:timechecker1|   ; 68 (68)     ; 33           ; 0          ; 0    ; 0            ; 35 (35)      ; 12 (12)           ; 21 (21)          ; 24 (24)         ; 0 (0)      ; |Maze|timechecker:timechecker1   ; timechecker  ; work         ;
+;    |timechecker:timechecker1|   ; 69 (69)     ; 33           ; 0          ; 0    ; 0            ; 36 (36)      ; 12 (12)           ; 21 (21)          ; 24 (24)         ; 0 (0)      ; |Maze|timechecker:timechecker1   ; timechecker  ; work         ;
 +---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -251,24 +251,13 @@ Encoding Type:  One-Hot
 +----------------------------------------------------+----------------------+------------------------+
 ; Latch Name                                         ; Latch Enable Signal  ; Free of Timing Hazards ;
 +----------------------------------------------------+----------------------+------------------------+
-; Key44:Key441|key_value[0]$latch                    ; Key44:Key441|WideOr4 ; yes                    ;
-; Key44:Key441|key_value[1]$latch                    ; Key44:Key441|WideOr4 ; yes                    ;
-; Key44:Key441|key_value[2]$latch                    ; Key44:Key441|WideOr4 ; yes                    ;
-; Key44:Key441|key_value[3]$latch                    ; Key44:Key441|WideOr4 ; yes                    ;
+; Key44:Key441|key_value[0]                          ; Key44:Key441|WideOr2 ; yes                    ;
+; Key44:Key441|key_value[1]                          ; Key44:Key441|WideOr2 ; yes                    ;
+; Key44:Key441|key_value[2]                          ; Key44:Key441|WideOr2 ; yes                    ;
+; Key44:Key441|key_value[3]                          ; Key44:Key441|WideOr2 ; yes                    ;
 ; Number of user-specified and inferred latches = 4  ;                      ;                        ;
 +----------------------------------------------------+----------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops               ;
-+--------------------------------------------------------+---+
-; Logic Cell Name                                        ;   ;
-+--------------------------------------------------------+---+
-; memory:memory1|Decoder0~0                              ;   ;
-; Number of logic cells representing combinational loops ; 1 ;
-+--------------------------------------------------------+---+
-Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +----------------------------------------------------------------------------------------+
@@ -291,8 +280,8 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; Key44:Key441|state~4                   ; Lost fanout                                   ;
 ; Key44:Key441|state~5                   ; Lost fanout                                   ;
 ; Key44:Key441|state~6                   ; Lost fanout                                   ;
-; numberdriver:numberdriver1|count[0]    ; Merged with nvidia:nvidia1|cnt[0]             ;
 ; timechecker:timechecker1|count[0]      ; Merged with nvidia:nvidia1|cnt[0]             ;
+; numberdriver:numberdriver1|count[0]    ; Merged with nvidia:nvidia1|cnt[0]             ;
 ; nvidia:nvidia1|address_out[0]~en       ; Merged with nvidia:nvidia1|address_out[4]~en  ;
 ; nvidia:nvidia1|address_out[1]~en       ; Merged with nvidia:nvidia1|address_out[4]~en  ;
 ; nvidia:nvidia1|address_out[2]~en       ; Merged with nvidia:nvidia1|address_out[4]~en  ;
@@ -311,12 +300,12 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 458   ;
-; Number of registers using Synchronous Clear  ; 6     ;
+; Total registers                              ; 465   ;
+; Number of registers using Synchronous Clear  ; 13    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 416   ;
+; Number of registers using Asynchronous Clear ; 423   ;
 ; Number of registers using Asynchronous Load  ; 21    ;
-; Number of registers using Clock Enable       ; 380   ;
+; Number of registers using Clock Enable       ; 385   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -341,52 +330,54 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; nvidia:nvidia1|row_tmp[5]               ; 2       ;
 ; nvidia:nvidia1|row_tmp[6]               ; 2       ;
 ; nvidia:nvidia1|row_tmp[7]               ; 2       ;
+; timechecker:timechecker1|number[4]      ; 6       ;
+; timechecker:timechecker1|number[5]      ; 5       ;
 ; commend:commend1|NVcommend              ; 77      ;
 ; nvidia:nvidia1|address_out[4]~en        ; 14      ;
-; memory:memory1|mem[36][0]               ; 1       ;
 ; memory:memory1|mem[39][0]               ; 1       ;
 ; memory:memory1|mem[42][0]               ; 1       ;
-; memory:memory1|mem[40][0]               ; 1       ;
-; memory:memory1|mem[34][0]               ; 1       ;
-; memory:memory1|mem[32][0]               ; 1       ;
-; memory:memory1|mem[46][0]               ; 1       ;
 ; memory:memory1|mem[44][0]               ; 1       ;
+; memory:memory1|mem[40][0]               ; 1       ;
+; memory:memory1|mem[46][0]               ; 1       ;
+; memory:memory1|mem[34][0]               ; 1       ;
+; memory:memory1|mem[36][0]               ; 1       ;
+; memory:memory1|mem[32][0]               ; 1       ;
 ; memory:memory1|mem[47][0]               ; 1       ;
-; memory:memory1|mem[26][0]               ; 1       ;
+; memory:memory1|mem[28][0]               ; 1       ;
 ; memory:memory1|mem[21][0]               ; 1       ;
 ; memory:memory1|mem[29][0]               ; 1       ;
+; memory:memory1|mem[26][0]               ; 1       ;
 ; memory:memory1|mem[24][0]               ; 1       ;
 ; memory:memory1|mem[16][0]               ; 1       ;
-; memory:memory1|mem[28][0]               ; 1       ;
 ; memory:memory1|mem[23][0]               ; 1       ;
 ; memory:memory1|mem[31][0]               ; 1       ;
 ; memory:memory1|mem[10][0]               ; 1       ;
-; memory:memory1|mem[9][0]                ; 1       ;
 ; memory:memory1|mem[8][0]                ; 1       ;
-; memory:memory1|mem[11][0]               ; 1       ;
-; memory:memory1|mem[5][0]                ; 1       ;
-; memory:memory1|mem[6][0]                ; 1       ;
-; memory:memory1|mem[4][0]                ; 1       ;
-; memory:memory1|mem[7][0]                ; 1       ;
-; memory:memory1|mem[2][0]                ; 1       ;
-; memory:memory1|mem[1][0]                ; 1       ;
-; memory:memory1|mem[0][0]                ; 1       ;
 ; memory:memory1|mem[3][0]                ; 1       ;
+; memory:memory1|mem[5][0]                ; 1       ;
+; memory:memory1|mem[1][0]                ; 1       ;
+; memory:memory1|mem[7][0]                ; 1       ;
+; memory:memory1|mem[4][0]                ; 1       ;
+; memory:memory1|mem[2][0]                ; 1       ;
+; memory:memory1|mem[0][0]                ; 1       ;
+; memory:memory1|mem[6][0]                ; 1       ;
+; memory:memory1|mem[11][0]               ; 1       ;
+; memory:memory1|mem[9][0]                ; 1       ;
 ; memory:memory1|mem[15][0]               ; 1       ;
-; memory:memory1|mem[57][0]               ; 1       ;
-; memory:memory1|mem[61][0]               ; 1       ;
 ; memory:memory1|mem[58][0]               ; 1       ;
-; memory:memory1|mem[50][0]               ; 1       ;
-; memory:memory1|mem[62][0]               ; 1       ;
-; memory:memory1|mem[56][0]               ; 1       ;
-; memory:memory1|mem[52][0]               ; 1       ;
-; memory:memory1|mem[60][0]               ; 1       ;
-; memory:memory1|mem[59][0]               ; 1       ;
 ; memory:memory1|mem[51][0]               ; 1       ;
+; memory:memory1|mem[50][0]               ; 1       ;
+; memory:memory1|mem[59][0]               ; 1       ;
+; memory:memory1|mem[60][0]               ; 1       ;
+; memory:memory1|mem[52][0]               ; 1       ;
+; memory:memory1|mem[61][0]               ; 1       ;
+; memory:memory1|mem[56][0]               ; 1       ;
+; memory:memory1|mem[57][0]               ; 1       ;
+; memory:memory1|mem[62][0]               ; 1       ;
 ; memory:memory1|mem[63][0]               ; 1       ;
 ; memory:memory1|mem[48][1]               ; 1       ;
-; commend:commend1|timecheckstop          ; 8       ;
-; Total number of inverted registers = 60 ;         ;
+; commend:commend1|timecheckstop          ; 6       ;
+; Total number of inverted registers = 62 ;         ;
 +-----------------------------------------+---------+
 
 
@@ -395,11 +386,11 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Maze|numberdriver:numberdriver1|LED_NUM[6] ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Maze|numberdriver:numberdriver1|LED_NUM[1] ;
 ; 8:1                ; 6 bits    ; 30 LEs        ; 6 LEs                ; 24 LEs                 ; Yes        ; |Maze|commend:commend1|k[4]                 ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |Maze|commend:commend1|data_out[1]          ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Maze|commend:commend1|address[2]~reg0      ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Maze|commend:commend1|address[4]~reg0      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Maze|commend:commend1|address[5]~reg0      ;
 ; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |Maze|nvidia:nvidia1|Mux2                   ;
 ; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |Maze|memory:memory1|Mux0                   ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Maze|commend:commend1|Selector30           ;
@@ -407,6 +398,16 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; 9:1                ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |Maze|commend:commend1|status               ;
 ; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; No         ; |Maze|commend:commend1|status               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: timechecker:timechecker1 ;
++----------------+----------+-------------------------------------------+
+; Parameter Name ; Value    ; Type                                      ;
++----------------+----------+-------------------------------------------+
+; OneSecClk      ; 24999999 ; Signed Integer                            ;
++----------------+----------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------+
@@ -425,16 +426,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Dec 20 10:16:29 2018
+    Info: Processing started: Thu Dec 27 09:06:12 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Maze -c Maze
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Warning (12125): Using design file maze.v, which is not specified as a design file for the current project, but contains definitions for 2 design units and 2 entities in project
     Info (12023): Found entity 1: Key44 File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 1
     Info (12023): Found entity 2: Maze File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 3
 Info (12127): Elaborating entity "Maze" for the top level hierarchy
 Info (12128): Elaborating entity "Key44" for hierarchy "Key44:Key441" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 31
-Warning (10230): Verilog HDL assignment warning at Key44.v(32): truncated value with size 32 to match size of target (6) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 32
+Warning (10230): Verilog HDL assignment warning at Key44.v(32): truncated value with size 32 to match size of target (13) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 32
 Warning (10235): Verilog HDL Always Construct warning at Key44.v(98): variable "key_flag" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 98
 Warning (10270): Verilog HDL Case Statement warning at Key44.v(100): incomplete case statement has no default case item File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 100
 Warning (10240): Verilog HDL Always Construct warning at Key44.v(97): inferring latch(es) for variable "key_value", which holds its previous value in one or more paths through the always construct File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
@@ -456,9 +457,9 @@ Warning (10230): Verilog HDL assignment warning at commend.v(188): truncated val
 Warning (12125): Using design file timechecker.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: timechecker File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/timechecker.v Line: 1
 Info (12128): Elaborating entity "timechecker" for hierarchy "timechecker:timechecker1" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 53
-Warning (10230): Verilog HDL assignment warning at timechecker.v(33): truncated value with size 32 to match size of target (25) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/timechecker.v Line: 33
-Warning (10230): Verilog HDL assignment warning at timechecker.v(43): truncated value with size 32 to match size of target (4) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/timechecker.v Line: 43
-Warning (10230): Verilog HDL assignment warning at timechecker.v(47): truncated value with size 32 to match size of target (4) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/timechecker.v Line: 47
+Warning (10230): Verilog HDL assignment warning at timechecker.v(34): truncated value with size 32 to match size of target (25) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/timechecker.v Line: 34
+Warning (10230): Verilog HDL assignment warning at timechecker.v(44): truncated value with size 32 to match size of target (4) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/timechecker.v Line: 44
+Warning (10230): Verilog HDL assignment warning at timechecker.v(48): truncated value with size 32 to match size of target (4) File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/timechecker.v Line: 48
 Warning (12125): Using design file numberdriver.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: numberdriver File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/numberdriver.v Line: 1
 Info (12128): Elaborating entity "numberdriver" for hierarchy "numberdriver:numberdriver1" File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 61
@@ -487,10 +488,6 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "commend:commend1|key_value_tmp[1]~1" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 53
     Warning (13049): Converted tri-state buffer "commend:commend1|key_value_tmp[2]~2" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 53
     Warning (13049): Converted tri-state buffer "commend:commend1|key_value_tmp[3]~3" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 53
-    Warning (13049): Converted tri-state buffer "Key44:Key441|key_value[3]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
-    Warning (13049): Converted tri-state buffer "Key44:Key441|key_value[2]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
-    Warning (13049): Converted tri-state buffer "Key44:Key441|key_value[1]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
-    Warning (13049): Converted tri-state buffer "Key44:Key441|key_value[0]" feeding internal logic into a wire File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
 Critical Warning (127005): Memory depth (16) in the design file differs from memory depth (11) in the Memory Initialization File "C:/Users/Xice/OneDrive - 0xice/verilog/Maze/db/Maze.ram0_numberdriver_44ae3e7.hdl.mif" -- setting initial value for remaining addresses to 0
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Xice/OneDrive - 0xice/verilog/Maze/db/Maze.ram0_numberdriver_44ae3e7.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
@@ -524,20 +521,20 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|data[0]" to the node "nvidia:nvidia1|memN" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 12
     Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|data[1]" to the node "nvidia:nvidia1|memN" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 12
-    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[1]" to the node "memory:memory1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
-    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[0]" to the node "memory:memory1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
     Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[2]" to the node "memory:memory1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
-    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[3]" to the node "memory:memory1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[1]" to the node "memory:memory1|always0" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[0]" to the node "memory:memory1|always0" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
+    Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[3]" to the node "memory:memory1|always0" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
     Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[5]" to the node "memory:memory1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
     Warning (13047): Converted the fan-out from the tri-state buffer "nvidia:nvidia1|address[4]" to the node "memory:memory1|Decoder1" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 7
     Warning (13047): Converted the fan-out from the tri-state buffer "commend:commend1|commend" to the node "memory:memory1|mem" into an OR gate File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/commend.v Line: 8
-Warning (13012): Latch Key44:Key441|key_value[0]$latch has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Warning (13012): Latch Key44:Key441|key_value[0] has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|row_reg[2] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
-Warning (13012): Latch Key44:Key441|key_value[1]$latch has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Warning (13012): Latch Key44:Key441|key_value[1] has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|row_reg[1] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
-Warning (13012): Latch Key44:Key441|key_value[2]$latch has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Warning (13012): Latch Key44:Key441|key_value[2] has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|col_reg[2] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
-Warning (13012): Latch Key44:Key441|key_value[3]$latch has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
+Warning (13012): Latch Key44:Key441|key_value[3] has unsafe behavior File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 97
     Warning (13013): Ports D and ENA on the latch are fed by the same signal Key44:Key441|col_reg[1] File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/Key44.v Line: 37
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LED_CAT[2]" is stuck at VCC File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 11
@@ -549,16 +546,16 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LED_NUM[7]" is stuck at GND File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/maze.v Line: 13
 Info (18000): Registers with preset signals will power-up high File: C:/Users/Xice/OneDrive - 0xice/verilog/Maze/nvidia.v Line: 85
 Info (17049): 12 registers lost all their fanouts during netlist optimizations.
-Info (21057): Implemented 1154 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1161 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 44 output pins
-    Info (21061): Implemented 1104 logic cells
+    Info (21061): Implemented 1111 logic cells
 Info (144001): Generated suppressed messages file C:/Users/Xice/OneDrive - 0xice/verilog/Maze/output_files/Maze.map.smsg
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 100 warnings
-    Info: Peak virtual memory: 4716 megabytes
-    Info: Processing ended: Thu Dec 20 10:16:49 2018
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:34
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 96 warnings
+    Info: Peak virtual memory: 4744 megabytes
+    Info: Processing ended: Thu Dec 27 09:07:00 2018
+    Info: Elapsed time: 00:00:48
+    Info: Total CPU time (on all processors): 00:01:12
 
 
 +------------------------------------------+
